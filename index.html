@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vírus Girando</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+        
+        .virus-container {
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .virus {
+            font-size: 8rem;
+            animation: spin 3s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+        }
+        
+        .text {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="virus-container">
+        <div class="virus">🦠</div>
+        <div class="text">Vírus Girando</div>
+    </div>
+
+    <script>
+        // Função para gerar cores aleatórias
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+        // Alterar a cor de fundo a cada 500ms
+        setInterval(() => {
+            document.body.style.backgroundColor = getRandomColor();
+        }, 500);
+    </script>
+</body>
+</html>
